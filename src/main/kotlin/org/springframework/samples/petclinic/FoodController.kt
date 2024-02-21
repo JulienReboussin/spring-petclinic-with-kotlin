@@ -12,9 +12,9 @@ class FoodController(var petTypeRepo: PetTypeRepository) {
     @GetMapping("/food")
     fun food() = "<h1>Do you want some food ?</h1>"
 
-    @GetMapping("/eatpet")
+    @GetMapping("/eat")
     fun eatPet(@RequestParam id: Long): String {
-        val pet: PetType? = petTypeRepo.findById(id);
+        val pet: PetType? = petTypeRepo.findById(id)
         return "<h1>Do you want to eat a ${pet?.name ?: "pizza"} ?</h1>"
     }
 }
